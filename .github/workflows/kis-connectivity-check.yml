@@ -1,0 +1,22 @@
+name: KIS 접속 확인
+
+# D-020 선결 과제. 해외 IP(Actions 러너)에서 KIS API가 열리는지 수동으로 확인한다.
+# 검증 전까지 스케줄 실행은 걸지 않는다.
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: 접속 확인
+        env:
+          KIS_APP_KEY: ${{ secrets.KIS_APP_KEY }}
+          KIS_APP_SECRET: ${{ secrets.KIS_APP_SECRET }}
+        run: python -m scripts.check_kis_connectivity
