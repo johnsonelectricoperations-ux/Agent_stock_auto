@@ -38,6 +38,17 @@ commission_buy = "<USER_DEFINED>"
 commission_sell = "<USER_DEFINED>"
 slippage_round_trip = "<USER_DEFINED>"
 
+[execution]
+# 호가 단위 표. 거래소 규정을 직접 확인해 채운다 (D-009).
+# 형식은 [[상한가격, 호가단위], ...]이고, 가격이 상한 미만이면 그 단위를 쓴다.
+# 마지막 구간은 상한을 넘는 가격에도 적용된다.
+# 코스피와 코스닥이 다를 수 있으므로 각각 확인한다.
+#
+# 틀린 표를 넣으면 모든 체결가가 조금씩 어긋나고 그 오차가 거래 횟수만큼 누적된다.
+# 예시 형식 (실제 값 아님):
+#   tick_table = [[2000, 1], [5000, 5], [20000, 10]]
+tick_table = "<USER_DEFINED>"
+
 [universe]
 # 제외 종목 조건 목록. 관리종목·투자경고 등
 exclude_conditions = "<USER_DEFINED>"
