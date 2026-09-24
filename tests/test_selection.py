@@ -1,4 +1,4 @@
-# 대조군이 실제로 생존 편향을 막는지, 그리고 선정이 재현 가능한지 검증한다 (D-021)
+# 대조군이 실제로 생존 편향을 막는지, 그리고 선정이 재현 가능한지 검증한다 (D-032)
 
 import pytest
 
@@ -46,10 +46,10 @@ def test_날짜가_다르면_대조군이_달라진다():
 
 
 def test_대조군_0은_거부한다():
-    """D-021. 대조군 없이는 분모가 없어 어떤 패턴도 검증되지 않는다."""
+    """D-032. 대조군 없이는 분모가 없어 에이전트가 생존 편향 규칙을 만든다."""
     with pytest.raises(SelectionError) as exc:
         select_candidates(_candidates(20), "2026-09-21", top_n=3, control_n=0)
-    assert "D-021" in str(exc.value)
+    assert "D-032" in str(exc.value)
 
 
 def test_상위군_0도_거부한다():
