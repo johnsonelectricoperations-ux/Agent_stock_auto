@@ -5,8 +5,8 @@ from dataclasses import dataclass
 from pathlib import Path
 from typing import Any
 
-# 아직 정해지지 않은 값을 나타내는 표식. 이 값이 실제 운용에 들어가면 안 된다.
-PLACEHOLDER = "MUST_DEFINE"
+# 아직 정해지지 않은 값을 나타내는 표식. 이 값이 실제 운용에 들어가면 안 된다 (핵심원칙 4).
+PLACEHOLDER = "<USER_DEFINED>"
 
 DEFAULT_CONFIG_PATH = Path("config.toml")
 
